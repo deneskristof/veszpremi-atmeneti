@@ -1,0 +1,187 @@
+body {
+background-color: #f0ede6;
+}
+/* Figyelemfelhívó üzenet szakasz */
+.alert-section {
+    background: linear-gradient(90deg, #933118, #feb47b); /* Modern színátmenet */
+    padding: 15px 0;
+    text-align: center;
+    position: relative;
+    z-index: 9;
+}
+
+.alert-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    animation: pulse 2s infinite; /* Animáció hozzáadása */
+    display: flex;
+    flex-direction: column; /* Szöveg és emojik egymás alá helyezése */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Távolság az emojik és a szöveg között */
+}
+
+/* Animáció a szöveg kiemelésére */
+@keyframes pulse {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 126, 95, 0.6);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 126, 95, 0.8);
+    }
+}
+
+/* Navigation Bar */
+.navbar {
+position: relative;
+background-color: #0071C1 !important;
+padding-right: 300px; /* Add padding to avoid overlap */
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 10; /* Ensure the navbar is in front of the carousel */
+}
+
+.navbar-shape {
+position: relative;
+z-index: 10; /* Ensure this value is higher than the carousel's z-index */
+}
+
+.navbar::before {
+content: '';
+position: absolute;
+top: 0;
+right: 0; /* Position it to the right */
+width: 500px; /* Adjusted width to only show the lighter side */
+height: 120px;
+background: linear-gradient(45deg, transparent 50%, #00A1E1 50%);
+z-index: 0; /* Ensure it is behind the content */
+}
+
+.navbar::after {
+content: 'Veszprémi útépítő kft';
+position: absolute;
+top: 50%;
+right: 15px; /* Adjust the position as needed */
+transform: translateY(-50%);
+color: #0071C1; /* Change color to #0071C1 */
+font-size: 1.2rem;
+font-weight: bold;
+text-transform: uppercase; /* Make text uppercase */
+z-index: 1; /* Ensure it is above the shape */
+}
+
+.navbar-toggler {
+position: absolute;
+top: 50%;
+right: 20px; /* Adjust the position as needed */
+transform: translateY(-50%);
+z-index: 1; /* Ensure it is above the shape */
+display: none; /* Hide the navbar-toggler by default */
+}
+
+.navbar .nav-link {
+color: white;
+font-weight: bold;
+}
+
+.navbar .navbar-brand {
+color: white;
+font-weight: bold;
+}
+
+.navbar .navbar-toggler-icon {
+filter: invert(1);
+}
+/* MAP section */
+.btn-group .btn.active {
+background-color: #007bff;
+color: white;
+}
+.btn-group .btn:not(.active) {
+background-color: #6c757d;
+color: white;
+}
+.map-container {
+height: 50vh; /* Adjust the height as needed */
+width: 100%;
+}
+.map-section-title {
+text-align: center;
+margin-bottom: 20px;
+}
+.other-jobs{
+margin-top: 20px;
+}
+
+.btn-group {
+justify-content: center;
+}
+/* Középre igazított header */
+.header {
+text-align: center;
+}
+
+
+/* Mobil nézet módosítások */
+@media (max-width: 768px) {
+    .navbar .fox {
+        height: 56px; /* Az eredeti 70px méret 20%-kal csökkentve */
+    }
+
+    .ms-2 {
+        display: none; /* Az .ms-2 elrejtése mobil nézetben */
+    }
+    .header{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .navbar::before {
+        content: 'VUK Veszprémi útépítő Kft'; /* Szöveg megtartása */
+        position: absolute;
+        top: 50%;
+        right: 0; /* Jobbra igazítva marad */
+        transform: translateY(-50%);
+        font-size: clamp(0.8rem, 2vw, 1.2rem); /* Dinamikusan csökkenő betűméret */
+        color: white; /* Szöveg színe */
+        z-index: 1; /* A szöveg a háttér előtt legyen */
+        white-space: nowrap; /* Szöveg ne törjön új sorba */
+        overflow: hidden; /* Ha túl hosszú, elrejtjük */
+        text-overflow: ellipsis; /* Hosszú szöveg esetén három pontot jelenítünk meg */
+        text-align: right; /* Szöveg jobbra igazítása */
+    }
+
+    .navbar::after {
+        content: 'Veszprémi útépítő kft';
+        position: absolute;
+        top: 50%;
+        right: 15px; /* Adjust the position as needed */
+        transform: translateY(-50%);
+        color: #0071C1; /* Change color to #0071C1 */
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase; /* Make text uppercase */
+        z-index: 2; /* Ensure it is above the shape */
+        }
+        /* Középre igazítás a "Székhely & Telephely" és "Iroda" számára */
+    .szekhely{
+        text-align: center; /* Középre igazítás */
+        margin-bottom: 50px;
+    }
+    .iroda {
+        text-align: center; /* Középre igazítás */
+        justify-content: center; /* Középre igazítás */
+    }
+    .alert-message .sub-message {
+        text-align: center; /* Jobbra igazítás */
+        width: 100%; /* A teljes szélességet lefedi */
+        margin-left: 20%; /* Jobbra tolás a "weblap" alatt */
+    }
+    .kapcsolat{
+        text-align: center; /* Középre igazítás */
+        margin-bottom: 50px;
+    }
+}
